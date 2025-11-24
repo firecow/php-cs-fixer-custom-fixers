@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace ErickSkrauch\PhpCsFixer;
 
 use IteratorAggregate;
-use PhpCsFixer\Finder;
 use PhpCsFixer\Fixer\FixerInterface;
 use ReflectionClass;
 use Traversable;
@@ -18,11 +17,17 @@ final class Fixers implements IteratorAggregate {
      * @return \Generator<FixerInterface>
      */
     public function getIterator(): Traversable {
-        $finder = new Finder();
-        $finder->in(__DIR__ . '/Fixer')->name('*.php');
+        $filesIterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator(__DIR__ . '/Fixer', \RecursiveDirectoryIterator::SKIP_DOTS),
+        );
+
         $classes = [];
-        /** @var \Symfony\Component\Finder\SplFileInfo $file */
-        foreach ($finder as $file) {
+        /** @var \SplFileInfo $file */
+        foreach ($filesIterator as $file) {
+            if ($file->getExtension() !== 'php') {
+                continue;
+            }
+
             // -4 is set to cut ".php" extension
             /** @var class-string<FixerInterface> $class */
             $class = __NAMESPACE__ . str_replace('/', '\\', mb_substr($file->getPathname(), mb_strlen(__DIR__), -4));
