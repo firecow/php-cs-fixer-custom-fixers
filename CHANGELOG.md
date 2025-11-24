@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.3.1] - 2025-11-24
+### Fixed
+- Fix #16: Ensure compatibility with PHP-CS-Fixer 3.90.0 (alamirault).
+
 ## [1.3.0] - 2024-06-21
 ### Added
 - Enh #4: Introduce `ErickSkrauch\ordered_overrides` fixer.
@@ -49,7 +53,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Initial implementation (extracted from [`elyby/php-code-style`](https://github.com/elyby/php-code-style/tree/0.5.0)).
 
-[Unreleased]: https://github.com/erickskrauch/php-cs-fixer-custom-fixers/compare/1.3.0...HEAD
+[Unreleased]: https://github.com/erickskrauch/php-cs-fixer-custom-fixers/compare/1.3.1...HEAD
+[1.3.1]: https://github.com/erickskrauch/php-cs-fixer-custom-fixers/compare/1.3.1...1.3.0
 [1.3.0]: https://github.com/erickskrauch/php-cs-fixer-custom-fixers/compare/1.3.0...1.2.4
 [1.2.4]: https://github.com/erickskrauch/php-cs-fixer-custom-fixers/compare/1.2.3...1.2.4
 [1.2.3]: https://github.com/erickskrauch/php-cs-fixer-custom-fixers/compare/1.2.2...1.2.3
